@@ -10,7 +10,6 @@ import { formUrlQuery } from "@/sanity/utils";
 const SearchForm = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const pathname = usePathname();
 
   const [search, setSearch] = useState("");
 
@@ -35,7 +34,7 @@ const SearchForm = () => {
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [search]);
+  }, [search, router, searchParams]);
 
   return (
     <form className="flex-center mx-auto mt-10 w-full sm:-mt-10 sm:px-5">
